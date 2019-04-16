@@ -1,0 +1,35 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install -r requirements.txt --quiet
+- pip install pytest
+- pip install pytest-cov
+- pip install coverage
+- pip install codacy-coverage
+- pip install mkdocs
+- pip install mkdocs-material
+script:
+- pytest tests --cov=autokeras_tabular --cov-report xml:coverage.xml
+- sh docs.sh
+after_script:
+- python-codacy-coverage -r coverage.xml
+deploy:
+- provider: pypi
+  user: bdbruin
+  password:
+    secure: 
+  on:
+    tags: true
+    repo: bolkedebruin/autokeras_tabular
+- provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_TOKEN"
+  keep-history: true
+  local-dir: docs/
+  target-branch: gh-pages
+  on:
+    branch: master
+env:
+  global:
+    secure: 
