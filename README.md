@@ -3,7 +3,7 @@
 Tabular support was removed by the Autokeras authors without a replacement. This reinstates the module. It should
 work exactly the same as before except you will need to import from autokeras_tabular.
 
-### Automated tabular classifier tutorial. [[source]](https://github.com/bolkedebruin/autokeras-tabular/tree/master/examples/task_modules/tabular)
+### Automated tabular classifier tutorial. [[source]](https://github.com/bolkedebruin/autokeras_tabular/tree/master/examples/task_modules/tabular)
 
 
 Class `TabularClassifier` and `TabularRegressor` are designed for automated generate best performance shallow/deep architecture
