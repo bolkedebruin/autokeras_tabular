@@ -219,7 +219,7 @@ class TabularClassifier(TabularSupervised):
     """
 
     def init_lgbm(self, y):
-        n_classes = len(set(y))
+        n_classes = len(set(y.flat))
         if n_classes == 2:
             self.objective = 'binary'
             self.lgbm = LGBMClassifier(silent=False,
